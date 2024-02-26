@@ -1,0 +1,6 @@
+.collapse-title, :where(.collapse > input[type="checkbox"]), :where(.collapse > input[type="radio"]) {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    min-height: 0.7rem;
+    transition: background-color 0.2s ease-out;
+}

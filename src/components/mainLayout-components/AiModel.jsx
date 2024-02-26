@@ -37,7 +37,7 @@ export default function AiModel({ shade, shade1 }) {
 
 
   const hexToRgba = (hex, opacity) => {
-    if (!hex) return 'rgba(0, 0, 0, 0)'; 
+    if (!hex) return 'rgba(0, 0, 0, 0)';
     const bigint = parseInt(hex.slice(1), 16);
     const r = (bigint >> 16) & 255;
     const g = (bigint >> 8) & 255;
@@ -45,14 +45,11 @@ export default function AiModel({ shade, shade1 }) {
     return `rgba(${r}, ${g}, ${b}, ${opacity})`;
   };
   const maskStyle = {
-    // '--tw-bg-color': shade1,
-    // backgroundColor:  `rgb(var(--tw-bg-color/ var(--tw-bg-opacity)))`
     backgroundColor: hexToRgba(shade1, "var(--tw-bg-opacity)")
   }
 
-
   return (
-    <div className="h-full rounded-xl bg-ui-gray text-white relative overflow-scroll">
+    <div className="h-full rounded-xl bg-ui-gray text-white relative ">
 
       <div className="h-[9.2rem] rounded-xl bg-[#201F23] m-1 px-6 pt-6 pb-2">
         <h1 className="text-2xl mb-4 font-bold">AI Models</h1>
@@ -67,7 +64,7 @@ export default function AiModel({ shade, shade1 }) {
               </svg>
             </div>
 
-            <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <ul tabIndex={0} className="dropdown-content z-[2] menu p-2 shadow bg-base-100 rounded-box w-52">
               <li>
                 <a href=" " className="py-0 px-2">
                   <div className="form-control">
@@ -75,7 +72,8 @@ export default function AiModel({ shade, shade1 }) {
                       <input
                         type="checkbox"
                         className={`checkbox checkbox-sm [--chkfg:white]`}
-                        checked={allChecked} style={checkboxStyle}
+                        checked={allChecked}
+                        style={checkboxStyle}
                         onChange={() => setAllChecked(!allChecked)}
                       />
                       <span className="label-text py-1 px-2">All</span>
@@ -92,7 +90,8 @@ export default function AiModel({ shade, shade1 }) {
                         <input
                           type="checkbox"
                           className={`checkbox checkbox-sm [--chkfg:white]`}
-                          checked={task.isChecked} style={checkboxStyle}
+                          checked={task.isChecked}
+                          style={checkboxStyle}
                           onChange={() => handleCheckboxChange(task.id, !task.isChecked)}
                         />
                         <span className="label-text py-1 px-2">{task.name}</span>
@@ -113,7 +112,7 @@ export default function AiModel({ shade, shade1 }) {
               </svg>
             </div>
 
-            <ul tabIndex={1} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <ul tabIndex={1} className="dropdown-content z-[2] menu p-2 shadow bg-base-100 rounded-box w-52">
               <li>
                 <a href=" " className="py-0 px-2">
                   <div className="form-control">
@@ -159,7 +158,7 @@ export default function AiModel({ shade, shade1 }) {
               </svg>
             </div>
 
-            <ul tabIndex={2} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+            <ul tabIndex={2} className="dropdown-content z-[2] menu p-2 shadow bg-base-100 rounded-box w-52">
               <li>
                 <a href=" " className="py-0 px-2">
                   <div className="form-control">
@@ -209,13 +208,13 @@ export default function AiModel({ shade, shade1 }) {
         </div>
       </div>
 
-      <div className="w-full rounded-xl px-1 ">
-
-        <div className="collapse bg-base-200 w-full bg-transparent hover:bg-black">
+      <div className="h-56 bg-transparent rounded-xl px-1 overflow-y-auto">
+        {/* Collapse-1 */}
+        <div className="collapse w-full bg-transparent hover:bg-[#17171A] mb-2">
           <input type="checkbox" />
-          <div className="collapse-title text-sm font-medium flex py-4 px-6">
+          <div className="collapse-title text-sm font-medium flex py-1 px-6" >
             {/* Model */}
-            <div className="w-full flex gap-x-2">
+            <div className="w-full flex items-center gap-x-2">
               <img
                 src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
                 className="w-6 h-6 rounded-full"
@@ -223,7 +222,7 @@ export default function AiModel({ shade, shade1 }) {
               <p>Chat GPT</p>
             </div>
 
-            <div className="gap-x-5 flex text-[#ffffff99]">
+            <div className="gap-x-5 flex items-center text-[#ffffff99] ">
               {/* Version */}
               <div className="w-16  flex justify-center">
                 <p>v2.1</p>
@@ -234,38 +233,256 @@ export default function AiModel({ shade, shade1 }) {
               </div>
               {/* Contributors */}
               <div className="w-24 flex justify-center">
-                <div class="flex">
-                  <img class="w-6 h-6 rounded-full border-2 border-white" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
-                  <img class="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
-                  <img class="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                <div className="flex">
+                  <img className="w-6 h-6 rounded-full border-2 border-white" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                </div>
+              </div>
+              {/* Ratings */}
+              <div className="w-16 rating z-[2] flex justify-center">
+                <input type="radio" name="rating-1" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-1" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-1" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-1" className="mask mask-star-2" checked style={maskStyle} />
+                <input type="radio" name="rating-1" className="mask mask-star-2" style={maskStyle} />
+              </div>
+            </div>
+
+          </div>
+          <div className="collapse-content text-sm bg-[#17171A]">
+            <p className="pt-4">ChatGPT is a chatbot developed by OpenAI and launched on November 30, 2022. Based on a large language model, it enables users to refine and steer a conversation towards a desired length, format, style, level of detail, and language.</p>
+          </div>
+        </div>
+
+        {/* Collapse-2 */}
+        <div className="collapse w-full bg-transparent hover:bg-[#17171A] mb-2">
+          <input type="checkbox" />
+          <div className="collapse-title text-sm font-medium flex py-1 px-6" >
+            {/* Model */}
+            <div className="w-full flex items-center gap-x-2">
+              <img
+                src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+                className="w-6 h-6 rounded-full"
+                alt="Avatar" />
+              <p>TensorFlow</p>
+            </div>
+
+            <div className="gap-x-5 flex items-center text-[#ffffff99] ">
+              {/* Version */}
+              <div className="w-16  flex justify-center">
+                <p>v1.1</p>
+              </div>
+              {/* License */}
+              <div className="w-12 flex pr-1 justify-end">
+                <p>MIT</p>
+              </div>
+              {/* Contributors */}
+              <div className="w-24 flex justify-center">
+                <div className="flex">
+                  <img className="w-6 h-6 rounded-full border-2 border-white" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
                 </div>
               </div>
               {/* Ratings */}
               <div className="w-16 rating z-[2] flex justify-center">
                 <input type="radio" name="rating-2" className="mask mask-star-2" style={maskStyle} />
-                <input type="radio" name="rating-2" className="mask mask-star-2" style={maskStyle}/>
-                <input type="radio" name="rating-2" className="mask mask-star-2 " style={maskStyle}/>
-                <input type="radio" name="rating-2" className="mask mask-star-2 " style={maskStyle}/>
-                <input type="radio" name="rating-2" className="mask mask-star-2" style={maskStyle}/>
+                <input type="radio" name="rating-2" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-2" className="mask mask-star-2" checked style={maskStyle} />
+                <input type="radio" name="rating-2" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-2" className="mask mask-star-2" style={maskStyle} />
               </div>
             </div>
 
           </div>
-          <div className="collapse-content bg-yellow-300">
-            <p>hello</p>
+          <div className="collapse-content text-sm bg-[#17171A]">
+            <p className="pt-4">ChatGPT is a chatbot developed by OpenAI and launched on November 30, 2022. Based on a large language model, it enables users to refine and steer a conversation towards a desired length, format, style, level of detail, and language.</p>
           </div>
         </div>
 
-        <div className="collapse bg-base-200">
+        {/* Collapse-3 */}
+        <div className="collapse w-full bg-transparent hover:bg-[#17171A] mb-2">
           <input type="checkbox" />
-          <div className="collapse-title text-xl font-medium">
-            Click me to show/hide content
+          <div className="collapse-title text-sm font-medium flex py-1 px-6" >
+            {/* Model */}
+            <div className="w-full flex items-center gap-x-2">
+              <img
+                src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+                className="w-6 h-6 rounded-full"
+                alt="Avatar" />
+              <p>Bard</p>
+            </div>
+
+            <div className="gap-x-5 flex items-center text-[#ffffff99] ">
+              {/* Version */}
+              <div className="w-16  flex justify-center">
+                <p>v2.1</p>
+              </div>
+              {/* License */}
+              <div className="w-12 flex pr-1 justify-end">
+                <p>MIT</p>
+              </div>
+              {/* Contributors */}
+              <div className="w-24 flex justify-center">
+                <div className="flex">
+                  <img className="w-6 h-6 rounded-full border-2 border-white" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                </div>
+              </div>
+              {/* Ratings */}
+              <div className="w-16 rating z-[2] flex justify-center">
+                <input type="radio" name="rating-3" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-3" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-3" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-3" className="mask mask-star-2" checked style={maskStyle} />
+                <input type="radio" name="rating-3" className="mask mask-star-2" style={maskStyle} />
+              </div>
+            </div>
+
           </div>
-          <div className="collapse-content">
-            <p>hello</p>
+          <div className="collapse-content text-sm bg-[#17171A]">
+            <p className="pt-4">ChatGPT is a chatbot developed by OpenAI and launched on November 30, 2022. Based on a large language model, it enables users to refine and steer a conversation towards a desired length, format, style, level of detail, and language.</p>
           </div>
         </div>
 
+        {/* Collapse-4 */}
+        <div className="collapse w-full bg-transparent hover:bg-[#17171A] mb-2">
+          <input type="checkbox" />
+          <div className="collapse-title text-sm font-medium flex py-1 px-6" >
+            {/* Model */}
+            <div className="w-full flex items-center gap-x-2">
+              <img
+                src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+                className="w-6 h-6 rounded-full"
+                alt="Avatar" />
+              <p>Chat GPT</p>
+            </div>
+
+            <div className="gap-x-5 flex items-center text-[#ffffff99] ">
+              {/* Version */}
+              <div className="w-16  flex justify-center">
+                <p>v2.1</p>
+              </div>
+              {/* License */}
+              <div className="w-12 flex pr-1 justify-end">
+                <p>MIT</p>
+              </div>
+              {/* Contributors */}
+              <div className="w-24 flex justify-center">
+                <div className="flex">
+                  <img className="w-6 h-6 rounded-full border-2 border-white" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                </div>
+              </div>
+              {/* Ratings */}
+              <div className="w-16 rating z-[2] flex justify-center">
+                <input type="radio" name="rating-4" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-4" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-4" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-4" className="mask mask-star-2" checked style={maskStyle} />
+                <input type="radio" name="rating-4" className="mask mask-star-2" style={maskStyle} />
+              </div>
+            </div>
+
+          </div>
+          <div className="collapse-content text-sm bg-[#17171A]">
+            <p className="pt-4">ChatGPT is a chatbot developed by OpenAI and launched on November 30, 2022. Based on a large language model, it enables users to refine and steer a conversation towards a desired length, format, style, level of detail, and language.</p>
+          </div>
+        </div>
+
+        {/* Collapse-5 */}
+        <div className="collapse w-full bg-transparent hover:bg-[#17171A] mb-2">
+          <input type="checkbox" />
+          <div className="collapse-title text-sm font-medium flex py-1 px-6" >
+            {/* Model */}
+            <div className="w-full flex items-center gap-x-2">
+              <img
+                src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+                className="w-6 h-6 rounded-full"
+                alt="Avatar" />
+              <p>Chat GPT</p>
+            </div>
+
+            <div className="gap-x-5 flex items-center text-[#ffffff99] ">
+              {/* Version */}
+              <div className="w-16  flex justify-center">
+                <p>v2.1</p>
+              </div>
+              {/* License */}
+              <div className="w-12 flex pr-1 justify-end">
+                <p>MIT</p>
+              </div>
+              {/* Contributors */}
+              <div className="w-24 flex justify-center">
+                <div className="flex">
+                  <img className="w-6 h-6 rounded-full border-2 border-white" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                </div>
+              </div>
+              {/* Ratings */}
+              <div className="w-16 rating z-[2] flex justify-center">
+                <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-5" className="mask mask-star-2" checked style={maskStyle} />
+                <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
+              </div>
+            </div>
+
+          </div>
+          <div className="collapse-content text-sm bg-[#17171A]">
+            <p className="pt-4">ChatGPT is a chatbot developed by OpenAI and launched on November 30, 2022. Based on a large language model, it enables users to refine and steer a conversation towards a desired length, format, style, level of detail, and language.</p>
+          </div>
+        </div>
+
+        {/* Collapse-6 */}
+        <div className="collapse w-full bg-transparent hover:bg-[#17171A] mb-2">
+          <input type="checkbox" />
+          <div className="collapse-title text-sm font-medium flex py-1 px-6" >
+            {/* Model */}
+            <div className="w-full flex items-center gap-x-2">
+              <img
+                src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
+                className="w-6 h-6 rounded-full"
+                alt="Avatar" />
+              <p>Chat GPT</p>
+            </div>
+
+            <div className="gap-x-5 flex items-center text-[#ffffff99] ">
+              {/* Version */}
+              <div className="w-16  flex justify-center">
+                <p>v2.1</p>
+              </div>
+              {/* License */}
+              <div className="w-12 flex pr-1 justify-end">
+                <p>MIT</p>
+              </div>
+              {/* Contributors */}
+              <div className="w-24 flex justify-center">
+                <div className="flex">
+                  <img className="w-6 h-6 rounded-full border-2 border-white" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
+                </div>
+              </div>
+              {/* Ratings */}
+              <div className="w-16 rating z-[2] flex justify-center">
+                <input type="radio" name="rating-6" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-6" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-6" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-6" className="mask mask-star-2" checked style={maskStyle} />
+                <input type="radio" name="rating-6" className="mask mask-star-2" style={maskStyle} />
+              </div>
+            </div>
+
+          </div>
+          <div className="collapse-content text-sm bg-[#17171A]">
+            <p className="pt-4">ChatGPT is a chatbot developed by OpenAI and launched on November 30, 2022. Based on a large language model, it enables users to refine and steer a conversation towards a desired length, format, style, level of detail, and language.</p>
+          </div>
+        </div>
       </div>
 
     </div>
