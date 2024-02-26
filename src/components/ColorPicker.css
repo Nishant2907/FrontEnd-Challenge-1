@@ -1,0 +1,10 @@
+.w-color-alpha-fill{
+    width: 16px !important;
+    height: 16px !important;
+    box-shadow: var(--alpha-pointer-box-shadow);
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: transparent !important;
+    transform: translate(-10px, -2px) !important;
+}
+
