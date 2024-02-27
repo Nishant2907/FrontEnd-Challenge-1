@@ -1,0 +1,93 @@
+  
+  .clock_wrapper {
+    display: inline-block;
+    /* padding: 39E9FA6; */
+  }
+  
+  .clock {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+    font-size: 24px;
+    text-align: center;
+    background: white;
+  }
+  
+  .clock::after {
+    background: #3F3DB6;
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .hour_hand {
+    position: absolute;
+    width: 2%;
+    height: 25%;
+    background: #000;
+    top: 25%;
+    left: 48.5%;
+    transform-origin: bottom;
+  }
+  
+  .min_hand {
+    position: absolute;
+    width: 2%;
+    height: 35%;
+    background: #000;
+    top: 15%;
+    left: 49%;
+    transform-origin: bottom;
+  }
+  
+  .sec_hand {
+    position: absolute;
+    width: 1%;
+    height: 45%;
+    background: #3F3DB6;
+    top: 5%;
+    left: 49.5%;
+    transform-origin: bottom;
+    z-index: 99;
+  }
+  
+  .twelve {
+    top: 4%;
+    left: 48.5%;
+    position: absolute;
+    width: 1.5%;
+    height: 15px;
+    background: #9E9FA6;
+  }
+  .three {
+    top: 48.5%;
+    right: 4%;
+    position: absolute;
+    height: 1.5%;
+    width: 15px;
+    background: #9E9FA6;
+  }
+  .six {
+    bottom: 4%;
+    left: 48.5%;
+    position: absolute;
+    width: 1.5%;
+    height: 15px;
+    background: #9E9FA6;
+  }
+  .nine {
+    top: 48.5%;
+    left: 4%;
+    position: absolute;
+    height: 1.5%;
+    width: 15px;
+    background: #9E9FA6;
+  }
+  

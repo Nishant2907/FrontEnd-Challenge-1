@@ -49,9 +49,9 @@ export default function AiModel({ shade, shade1 }) {
   }
 
   return (
-    <div className="h-full rounded-xl bg-ui-gray text-white relative ">
+    <div className="h-full rounded-xl bg-ui-gray text-white relative p-1">
 
-      <div className="h-[9.2rem] rounded-xl bg-[#201F23] m-1 px-6 pt-6 pb-2">
+      <div className="h-[9.2rem] rounded-xl bg-[#201F23] px-6 pt-6 pb-2">
         <h1 className="text-2xl mb-4 font-bold">AI Models</h1>
 
         <div className="flex gap-x-2">

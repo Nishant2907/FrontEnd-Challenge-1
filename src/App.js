@@ -18,7 +18,7 @@ function App() {
   };
 
   return (
-    <div className="App px-32 py-12" style={{ backgroundColor: `${shadesArray[4]}` }}>
+    <div className="App px-32 py-11" style={{ backgroundColor: `${shadesArray[4]}` }}>
       {/* // <div className="App " style={{ backgroundColor: `hsl(${bgColor},  100%,  50%)` }}> */}
       <ColorPicker
         onColorChange={handleColorChange}

@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./Clock.css";
 
-export default function Clock() {
+const Clock = () => {
+  const [time, setTime] = useState(new Date());
+
+  useEffect(() => {
+    const timerId = setInterval(() => {
+      setTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timerId);
+  }, []);
+
+  const handleHandStyles = (unit) => ({
+    transform: `rotateZ(${
+      unit === "hour"
+        ? time.getHours() * 30 + time.getMinutes() / 2
+        : unit === "minute"
+        ? time.getMinutes() * 6
+        : time.getSeconds() * 6
+    }deg)`
+  });
+
   return (
-    <div className="h-full rounded-xl bg-ui-gray text-white relative p-7">
-        Clock</div>
-  )
-}
+    <div className="clock_wrapper">
+      <div className="clock">
+        <div className="hour_hand" style={handleHandStyles("hour")} />
+        <div className="min_hand" style={handleHandStyles("minute")} />
+        <div className="sec_hand" style={handleHandStyles("second")} />
+        <span className="twelve"></span>
+        <span className="three"></span>
+        <span className="six"></span>
+        <span className="nine"></span>
+      </div>
+    </div>
+  );
+};
+
+export default Clock;

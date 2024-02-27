@@ -1,0 +1,8 @@
+.filter .resize-handle-horizon {
+    height: 3.5rem !important;
+    top: calc(50% - 25px) !important; 
+    cursor:ew-resize;
+    position: relative;
+    border-radius: 10px;
+    transform: translateX(-2px);
+  }

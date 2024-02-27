@@ -3,7 +3,7 @@ import React from 'react';
 import { Resize, ResizeVertical, ResizeHorizon } from "react-resize-layout";
 import ToDo from "./mainLayout-components/ToDo"
 import AiModel from './mainLayout-components/AiModel';
-import Clock from './mainLayout-components/Clock';
+import ClockFilter from './mainLayout-components/ClockFilter';
 import Filter from './mainLayout-components/Filter';
 
 export default function MainLayout({shade,shade1}) {
@@ -19,12 +19,12 @@ export default function MainLayout({shade,shade1}) {
                             <AiModel shade={shade} shade1={shade1}/>
                         </ResizeHorizon>
                         <ResizeHorizon width="250px" minWidth="249.9px">
-                           <Clock/>
+                           <ClockFilter shade={shade}/>
                         </ResizeHorizon>
                     </Resize>
                 </ResizeVertical>
-                <ResizeVertical height="192px" minHeight="192px">
-                    <Filter/>
+                <ResizeVertical height="200px" minHeight="200px">
+                    <Filter shade={shade}/>
                 </ResizeVertical>
             </Resize>
         </div>
