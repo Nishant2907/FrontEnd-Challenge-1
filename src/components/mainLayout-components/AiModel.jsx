@@ -365,24 +365,22 @@ export default function AiModel({ shade, shade1 }) {
                 src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
                 className="w-6 h-6 rounded-full"
                 alt="Avatar" />
-              <p>Chat GPT</p>
+              <p>Gemini</p>
             </div>
 
             <div className="gap-x-5 flex items-center text-[#ffffff99] ">
               {/* Version */}
               <div className="w-16  flex justify-center">
-                <p>v2.1</p>
+                <p>v3.2</p>
               </div>
               {/* License */}
               <div className="w-12 flex pr-1 justify-end">
-                <p>MIT</p>
+                <p>Apache 2.0</p>
               </div>
               {/* Contributors */}
               <div className="w-24 flex justify-center">
                 <div className="flex">
                   <img className="w-6 h-6 rounded-full border-2 border-white" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
-                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
-                  <img className="w-6 h-6 rounded-full border-2 border-white -ml-2" src="https://tecdn.b-cdn.net/img/new/avatars/2.webp" alt="" />
                 </div>
               </div>
               {/* Ratings */}
@@ -390,8 +388,8 @@ export default function AiModel({ shade, shade1 }) {
                 <input type="radio" name="rating-4" className="mask mask-star-2" style={maskStyle} />
                 <input type="radio" name="rating-4" className="mask mask-star-2" style={maskStyle} />
                 <input type="radio" name="rating-4" className="mask mask-star-2" style={maskStyle} />
-                <input type="radio" name="rating-4" className="mask mask-star-2" checked style={maskStyle} />
                 <input type="radio" name="rating-4" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-4" className="mask mask-star-2" checked style={maskStyle} />
               </div>
             </div>
 
@@ -411,7 +409,7 @@ export default function AiModel({ shade, shade1 }) {
                 src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
                 className="w-6 h-6 rounded-full"
                 alt="Avatar" />
-              <p>Chat GPT</p>
+              <p>Sora</p>
             </div>
 
             <div className="gap-x-5 flex items-center text-[#ffffff99] ">
@@ -434,9 +432,9 @@ export default function AiModel({ shade, shade1 }) {
               {/* Ratings */}
               <div className="w-16 rating z-[2] flex justify-center">
                 <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
-                <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
-                <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
                 <input type="radio" name="rating-5" className="mask mask-star-2" checked style={maskStyle} />
+                <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
+                <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
                 <input type="radio" name="rating-5" className="mask mask-star-2" style={maskStyle} />
               </div>
             </div>
@@ -457,13 +455,13 @@ export default function AiModel({ shade, shade1 }) {
                 src="https://tecdn.b-cdn.net/img/new/avatars/2.webp"
                 className="w-6 h-6 rounded-full"
                 alt="Avatar" />
-              <p>Chat GPT</p>
+              <p>Llama</p>
             </div>
 
             <div className="gap-x-5 flex items-center text-[#ffffff99] ">
               {/* Version */}
               <div className="w-16  flex justify-center">
-                <p>v2.1</p>
+                <p>v1.1</p>
               </div>
               {/* License */}
               <div className="w-12 flex pr-1 justify-end">
