@@ -375,7 +375,7 @@ export default function AiModel({ shade, shade1 }) {
               </div>
               {/* License */}
               <div className="w-12 flex pr-1 justify-end">
-                <p>Apache 2.0</p>
+                <p>Apache</p>
               </div>
               {/* Contributors */}
               <div className="w-24 flex justify-center">
