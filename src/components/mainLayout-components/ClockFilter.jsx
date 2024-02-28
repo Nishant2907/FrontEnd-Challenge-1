@@ -37,7 +37,7 @@ export default function ClockFilter({ shade }) {
           <div className="p-5 h-full w-full bg-cover">
             <Draggable axis="y" bounds="parent">
               <div className="flex justify-center">
-                <Clock />
+                <Clock shade={shade}/>
               </div>
             </Draggable>
             <div className="grid place-items-center">

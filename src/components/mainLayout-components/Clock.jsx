@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Clock.css";
 
-const Clock = () => {
+const Clock = ({shade}) => {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
@@ -21,6 +21,11 @@ const Clock = () => {
         : time.getSeconds() * 6
     }deg)`
   });
+
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty("--clock_shade", shade);
+  }, [shade]);
 
   return (
     <div className="clock_wrapper">

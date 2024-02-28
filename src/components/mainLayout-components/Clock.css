@@ -1,4 +1,6 @@
-  
+  :root{
+    --clock_shade:"";
+  }
   .clock_wrapper {
     display: inline-block;
     /* padding: 39E9FA6; */
@@ -15,7 +17,7 @@
   }
   
   .clock::after {
-    background: #3F3DB6;
+    background: var(--clock_shade);
     content: "";
     width: 8px;
     height: 8px;
@@ -35,6 +37,7 @@
     top: 25%;
     left: 48.5%;
     transform-origin: bottom;
+    border-radius: 20px;
   }
   
   .min_hand {
@@ -45,13 +48,14 @@
     top: 15%;
     left: 49%;
     transform-origin: bottom;
+    border-radius: 20px;
   }
   
   .sec_hand {
     position: absolute;
     width: 1%;
     height: 45%;
-    background: #3F3DB6;
+    background: var(--clock_shade);
     top: 5%;
     left: 49.5%;
     transform-origin: bottom;
