@@ -1,8 +1,91 @@
 .filter .resize-handle-horizon {
-    height: 3.5rem !important;
-    top: calc(50% - 25px) !important; 
-    cursor:ew-resize;
-    position: relative;
-    border-radius: 10px;
-    transform: translateX(-2px);
+  height: 3.5rem !important;
+  top: calc(50% - 25px) !important;
+  cursor: ew-resize;
+  position: relative;
+  border-radius: 10px;
+  transform: translateX(-2px);
+}
+
+:root {
+  --radar-color:"";
+}
+
+.spinner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+  transition: 200ms all;
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    background-image: conic-gradient(transparent 70%, var(--radar-color));
+    animation: spin 3s infinite linear;
   }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+.circle-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the circles in their container*/
+  border: 1px solid var(--radar-color);
+  border-radius: 50%;
+  opacity: 0; /* Circles start out hidden */
+}
+
+.circle:nth-child(1) {
+  /* Style the innermost circle */
+  width: 25%;
+  height: 25%;
+  animation: circle-anim 3s linear infinite;
+}
+
+.circle:nth-child(2) {
+  /* Style the middle circle */
+  width: 40%;
+  height: 40%;
+  animation: circle-anim 3s linear infinite;
+  animation-delay: 1s; /* Delay by 1 second */
+}
+
+.circle:nth-child(3) {
+  /* Style the outermost circle */
+  width: 70%;
+  height: 70%;
+  animation: circle-anim 3s linear infinite;
+  animation-delay: 2s; /* Delay by 2 seconds */
+}
+
+@keyframes circle-anim {
+  0% {
+    opacity: 1;
+  } /* Fade in */
+  50% {
+    opacity: 0;
+  } /* Stay visible briefly */
+  100% {
+    opacity: 0;
+  } /* Fade out */
+}

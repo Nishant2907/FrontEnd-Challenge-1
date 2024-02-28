@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./AiModel.css";
 
 export default function AiModel({ shade, shade1 }) {
-  const [allChecked, setAllChecked] = useState(false);
+
   const [checklist, setChecklist] = useState([
     { id: 1, name: "UX/UI Design", isChecked: false },
     { id: 2, name: "Frontend", isChecked: false },
@@ -12,29 +12,36 @@ export default function AiModel({ shade, shade1 }) {
     { id: 6, name: "Web Designer", isChecked: false },
     { id: 7, name: "QA", isChecked: false },
   ]);
+  const [allChecked, setAllChecked] = useState(false);
+
+  useEffect(() => {
+    // Update "All" checkbox based on checklist state
+    const allChecked = checklist.every(item => item.isChecked);
+    setAllChecked(allChecked);
+  }, [checklist]);
+
+  const handleCheckboxChange = (itemId, isChecked) => {
+    const updatedChecklist = checklist.map(item =>
+      item.id === itemId ? { ...item, isChecked } : item
+    );
+    setChecklist(updatedChecklist);
+    // Check if all checkboxes are checked
+    const allChecked = updatedChecklist.every(item => item.isChecked);
+    setAllChecked(allChecked);
+  };
+
+  const handleAllCheckboxChange = () => {
+      const updatedAllChecked = !allChecked;
+    setAllChecked(updatedAllChecked);
+    // Directly modify the existing state object using spread operator
+    setChecklist(
+      checklist.map((item) => ({ ...item, isChecked: updatedAllChecked }))
+    );
+  };
 
   const checkboxStyle = {
     '--chkbg': shade,
   };
-
-  useEffect(() => {
-    // Update all checkboxes based on "All" checkbox state
-    checklist.forEach((item) => (item.isChecked = allChecked));
-    setChecklist([...checklist]); // Update state to trigger re-render
-  }, [allChecked]);
-
-  const handleCheckboxChange = (itemId, isChecked) => {
-    setChecklist(
-      checklist.map((item) =>
-        item.id === itemId ? { ...item, isChecked } : item
-      )
-    );
-    // Logic for updating "All" checkbox state:
-    const allUnchecked = checklist.every((item) => !item.isChecked); // Are all checkboxes unchecked?
-    const allChecked = checklist.every((item) => item.isChecked); // Are all checkboxes checked?
-    setAllChecked(allChecked || !allUnchecked); // Set "All" checkbox based on overall state
-  };
-
 
   const hexToRgba = (hex, opacity) => {
     if (!hex) return 'rgba(0, 0, 0, 0)';
@@ -66,15 +73,15 @@ export default function AiModel({ shade, shade1 }) {
 
             <ul tabIndex={0} className="dropdown-content z-[2] menu p-2 shadow bg-base-100 rounded-box w-52">
               <li>
-                <a href=" " className="py-0 px-2">
-                  <div className="form-control">
+                <a className="py-0 px-2">
+                  <div className="form-control" >
                     <label className="cursor-pointer label p-0">
                       <input
                         type="checkbox"
                         className={`checkbox checkbox-sm [--chkfg:white]`}
                         checked={allChecked}
                         style={checkboxStyle}
-                        onChange={() => setAllChecked(!allChecked)}
+                        onChange={handleAllCheckboxChange}
                       />
                       <span className="label-text py-1 px-2">All</span>
                     </label>
@@ -82,9 +89,9 @@ export default function AiModel({ shade, shade1 }) {
                 </a>
               </li>
 
-              {checklist.map((task, index) => (
+              {checklist.map((task) => (
                 <li key={task.id}>
-                  <a href=" " className="py-0 px-2">
+                  <a className="py-0 px-2">
                     <div className="form-control">
                       <label className="cursor-pointer label p-0">
                         <input
@@ -120,8 +127,9 @@ export default function AiModel({ shade, shade1 }) {
                       <input
                         type="checkbox"
                         className={`checkbox checkbox-sm [--chkfg:white]`}
-                        checked={allChecked} style={checkboxStyle}
-                        onChange={() => setAllChecked(!allChecked)}
+                        checked={allChecked}
+                        style={checkboxStyle}
+                        onChange={handleAllCheckboxChange}
                       />
                       <span className="label-text py-1 px-2">All</span>
                     </label>
@@ -132,7 +140,7 @@ export default function AiModel({ shade, shade1 }) {
               {checklist.map((task, index) => (
                 <li key={task.id}>
                   <a href=" " className="py-0 px-2">
-                    <div className="form-control">
+                    <div className="">
                       <label className="cursor-pointer label p-0">
                         <input
                           type="checkbox"
@@ -161,13 +169,14 @@ export default function AiModel({ shade, shade1 }) {
             <ul tabIndex={2} className="dropdown-content z-[2] menu p-2 shadow bg-base-100 rounded-box w-52">
               <li>
                 <a href=" " className="py-0 px-2">
-                  <div className="form-control">
+                  <div className="">
                     <label className="cursor-pointer label p-0">
                       <input
                         type="checkbox"
                         className={`checkbox checkbox-sm [--chkfg:white]`}
                         checked={allChecked} style={checkboxStyle}
-                        onChange={() => setAllChecked(!allChecked)}
+                        // onChange={() => setAllChecked(!allChecked)}
+                        onChange={handleAllCheckboxChange}
                       />
                       <span className="label-text py-1 px-2">All</span>
                     </label>
@@ -208,7 +217,7 @@ export default function AiModel({ shade, shade1 }) {
         </div>
       </div>
 
-      <div className="h-56 bg-transparent rounded-xl px-1 overflow-y-auto">
+      <div className="h-56 bg-transparent rounded-xl px-1 my-1 overflow-y-auto">
         {/* Collapse-1 */}
         <div className="collapse w-full bg-transparent hover:bg-[#17171A] mb-2">
           <input type="checkbox" />

@@ -12,7 +12,7 @@ export default function ToDo({ shade }) {
 
     useEffect(() => {
         const handleChange = (e) => {
-            e.target.removeAttribute("class");
+            e.target.removeAttribute("className");
         };
 
         const form = document.forms[0];

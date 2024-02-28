@@ -1,0 +1,52 @@
+:root {
+  --modal-trigger-color: "";
+}
+
+.modal {
+  transition: all 0.3s ease;
+  /* position: relative; */
+  background-color: transparent !important;
+  display: flex;
+  justify-items: center;
+  left: 57.5%;
+  top: 50.5%;
+  padding: 0px;
+  transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+}
+
+.modal-body {
+  border-radius: 10px;
+  background: #141417;
+}
+
+.modal-btn {
+  background-color: var(--modal-trigger-color);
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.1s ease;
+  cursor: pointer;
+}
+
+.modal-trigger {
+  position: relative;
+  padding: 12px 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--modal-trigger-color);
+}
+
+/* .modal-trigger:focus, */
+/* .modal-trigger:hover, */
+.modal-trigger:active {
+  background-color: black !important;
+}
+
+textarea {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #201F23;
+}
+textarea:hover, textarea:focus {
+  border-color: var(--modal-trigger-color);
+}
+
